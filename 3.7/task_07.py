@@ -1,4 +1,4 @@
-import calendar
+from calendar import isleap
 
 
-[print(calendar.isleap(int(input()))) for _ in range(int(input()))]
+[print(isleap(int(input()))) for _ in range(int(input()))]
