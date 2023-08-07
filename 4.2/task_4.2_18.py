@@ -1,11 +1,9 @@
 import csv
 
 
-male: list = []
-female: list = []
-with open('titanic.csv', 'r', encoding='utf-8') as csv_file:
-    rows = list(csv.reader(csv_file, delimiter=';'))
-    for row in filter(lambda x: x[0] != '0' and int(float(x[3])) < 18, rows[1:]):
-        male.append(row[1]) if row[2] == 'male' else female.append(row[1])
-print(*male, sep='\n')
-print(*female, sep='\n')
+with open('titanic.csv', 'r', encoding='utf-8') as file:
+    chosen = [data for stat, *data, age in
+              tuple(csv.reader(file, delimiter=';'))[1:]
+              if stat != '0' and float(age) < 18]
+    [print(pers[0]) for pers in
+     sorted(chosen, key=lambda x: x[1], reverse=True)]
