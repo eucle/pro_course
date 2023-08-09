@@ -1,8 +1,9 @@
 import csv
+from typing import Any
 
 
 with open('student_counts.csv', 'r', encoding='utf-8') as file:
-    rows = csv.DictReader(file, delimiter=',')
+    rows: Any = csv.DictReader(file, delimiter=',')
     columns = ['year'] +\
         sorted(rows.fieldnames[1:], key=lambda x: (int(x.split('-')[0]), x.split('-')[-1]))
     new_rows: list = list(rows)
