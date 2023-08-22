@@ -3,8 +3,8 @@ import json
 
 dists: dict = {}
 comps: dict = {}
-with open('food_services.json', 'r', encoding='utf-8') as in_file:
-    for obj in json.load(in_file):
+with open('food_services.json', 'r', encoding='utf-8') as inp_file:
+    for obj in json.load(inp_file):
         dists[obj['District']] = dists.get(obj['District'], 0) + 1
         if obj['OperatingCompany']:
             comps[obj['OperatingCompany']] = comps.get(obj['OperatingCompany'], 0) + 1
