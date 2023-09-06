@@ -1,3 +1,4 @@
 pro_course.code-workspace
 .DS_Store
 .git
+/venv/
